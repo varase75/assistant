@@ -22,7 +22,7 @@ public class HiringAssistantImpl implements HiringAssistant {
 		return combinations.get(minimalAmount);
 	}
 
-	public void add(Service service) {
+	public synchronized void add(Service service) {
 		services = Optional.ofNullable(services).orElseGet(() -> new ArrayList<Service>());
 		if (!services.contains(service)) {
 			services.add(service);
